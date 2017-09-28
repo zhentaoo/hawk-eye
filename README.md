@@ -1,20 +1,16 @@
+## hawk-eye, 前端监控系统
 
-Application created by [ThinkJS](http://www.thinkjs.org)
-
-## Install dependencies
-
+### Install dependencies
 ```
 npm install
 ```
 
-## Start server
-
+### Start server
 ```
 npm start
 ```
 
-## Deploy with pm2
-
+### Deploy with pm2
 Use pm2 to deploy app on production enviroment.
 
 ```
