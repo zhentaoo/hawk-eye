@@ -1,0 +1,15 @@
+{
+  "apps": [{
+    "name": "hawk-eye",
+    "script": "production.js",
+    "cwd": "/Users/zhentaoo/Code/hawk-eye",
+    "exec_mode": "fork",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}
