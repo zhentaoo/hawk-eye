@@ -31,3 +31,7 @@
 
 ### 3. 客户端: chrome插件，用来查看个人主站是否有异常
 - https://github.com/zhentaoo/bitcoin-price
+
+
+### 4. 运行结果
+<img src ="./doc/run-pp.png">
