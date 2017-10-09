@@ -1,16 +1,22 @@
 {
   "apps": [{
-    "name": "xx",
-    "script": "www/production.js",
-    "cwd": "/Users/zhentaoo/Code/hawk-eye/xx",
-    "exec_mode": "cluster",
-    "instances": 0,
-    "max_memory_restart": "1G",
+    "name": "hawk-eye",
+    "script": "./www/production.js",
+    "max_memory_restart": "100M",
     "autorestart": true,
     "node_args": [],
     "args": [],
     "env": {
-      
+
+    }
+  },{
+    "name": "monitor-pp",
+    "script": "./scripts/monitor-pp.js",
+    "max_memory_restart": "300M",
+    "node_args": [],
+    "args": [],
+    "env": {
+
     }
   }]
 }

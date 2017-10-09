@@ -67,4 +67,4 @@ function monitor() {
 }
 
 monitor();
-setInterval(monitor, 1000 * 60 * 5);
+setInterval(monitor, 1000 * 60 * 30);
