@@ -11,6 +11,8 @@
   "dependencies": {
     "babel-runtime": "6.x.x",
     "mongodb": "^2.0.48",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
     "source-map-support": "0.4.0",
     "thinkjs": "v2"
   },

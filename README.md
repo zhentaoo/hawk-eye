@@ -18,14 +18,14 @@
 ## 1. PuppeteerJS: 定时脚本，爬取被监控对象的状态
 `/scripts/monitor-pp.js`
 
-## 2. ThinkJS: 简单的后台服务
-- 使用ThinkJS创建一个简单的RestFUl APi
+## 2. ThinkJS: RestFUl API
+- 使用ThinkJS创建一个简单的RestFUl API服务
 - 文档： https://thinkjs.org/zh-cn/doc/3.0/rest.html#toc-b15
 - 安装2.0脚手架：`npm install -g thinkjs@2`
 - 初始化项目：`thinkjs new hawk-eye`
 - 创建restful api：`thinkjs controller home/monitor -r`
 
-<img src ="./doc/think-mongo.png">
+<img src ="./doc/run.png">
 
 ## 3. 客户端: chrome插件，用来查看个人主站是否有异常
 - https://github.com/zhentaoo/bitcoin-price
