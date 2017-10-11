@@ -3,7 +3,7 @@ let date = Math.random();
 
 let options = {
     method: 'POST',
-    uri: 'http://127.0.0.1:8360/monitor',
+    uri: 'http://127.0.0.1:8360/monitorerr',
     body: {
       state: 'error',
       img: `ZT-${date}.png`,

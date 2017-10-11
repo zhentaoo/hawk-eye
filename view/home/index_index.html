@@ -1,15 +1,141 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>hawk-eye</title>
-  </head>
-  <body>
-    <h1>
-      hawk eye running....
-    </h1>
-    <h4>
-      前端监控系统：Puppeteer＋ThinkJS
-    </h4>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2 @click="test">{{ title }}<span>前端监控系统</span></h2>
+        <hr>
+        <div class="err">
+            <h4>异常统计</h4>
+            <div v-for="n in errData">
+              <span>{{new Date(n.time).toLocaleString()}}</span>
+              <span>{{n.state}}，{{n.info || `--`}}</span>
+            </div>
+            <div class="">
+              <img
+                @click="view()"
+                v-if="errData[0]"
+                :src="errData[0].img"
+              >
+            </div>
+        </div>
+
+        <div class="success">
+            <img
+              @click="view()"
+              v-if="successData[0] && successData[0].img"
+              :src="successData[0].img"
+            >
+            <h4>正常统计，最多保留20条</h4>
+            <div v-for="n in successData">
+              <span>{{new Date(n.time).toLocaleString()}}</span>
+              <span>{{n.state}}</span>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'HAWK EYE',
+            errData: [],
+            successData: []
+        },
+        created() {
+            // 获取正常数据
+            axios.get('/monitor')
+                .then((response) => {
+                    this.successData = response.data.data;
+                    this.successData.sort((a, b) => a.time < b.time);
+
+                    if (this.successData[0].img) {
+                        this.successData[0].img = "/static/img/success/" + this.successData[0].img;
+                    }
+
+                    // 如果正常记录超过20条，则开始删除
+                    if (this.successData.length > 20) {
+                      let lastOne = this.successData.pop()
+                      axios.delete(`/monitor/${lastOne._id}`)
+                    }
+
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+            // 获取异常数据
+            axios.get('/monitorerr')
+                .then((response) => {
+                    this.errData = response.data.data;
+                    this.errData.sort((a, b) => a.time < b.time);
+
+                    if (this.errData[0].img) {
+                        this.errData[0].img = "/static/img/err/" + this.errData[0].img;
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+<style media="screen">
+    .err {
+        position: relative;
+        float: left;
+        min-height: 400px;
+        width: 49%;
+        /*border: 1px solid red;*/
+        border-right: 1px solid #cccccc;
+    }
+
+    .success {
+        position: relative;
+        /*border: 1px solid red;*/
+        float: right;
+        width: 49%;
+    }
+
+    div span {
+      margin-right: 25px;
+    }
+
+    img {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        width: 300px;
+        height: 260px;
+        border: 1px solid #dedede;
+        border-radius: 2px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    div {
+        margin: 10px 0;
+    }
+
+    h2 span {
+        font-size: 17px;
+        margin-left: 30px;
+        position: relative;
+        top: -3px;
+    }
+</style>

@@ -15,6 +15,8 @@
 
 <img src ="./doc/zhentaoo.png">
 
+### 运行效果
+
 ### 1. PuppeteerJS: 定时脚本，爬取被监控对象的状态
 `/scripts/monitor-pp.js`
 
@@ -29,9 +31,6 @@
 
 <img src ="./doc/run.png">
 
-### 3. 客户端: chrome插件，用来查看个人主站是否有异常
-- https://github.com/zhentaoo/bitcoin-price
-
-
-### 4. 运行结果
+### 3. 运行结果
 <img src ="./doc/run-pp.png">
+<img src ="./doc/hawk-eye.png">
