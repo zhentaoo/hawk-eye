@@ -92,6 +92,7 @@ function monitor() {
         } finally {
           browser.close();
           console.log('puppeteer end...');
+          return;
         }
     });
 }

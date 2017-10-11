@@ -57,7 +57,10 @@
             axios.get('/monitor')
                 .then((response) => {
                     this.successData = response.data.data;
+                    console.log('before sort:', this.successData[0].time, this.successData[this.successData.length - 1].time);
+
                     this.successData.sort((a, b) => a.time < b.time);
+                    console.log('after sort:', this.successData[0].time, this.successData[this.successData.length - 1].time);
 
                     if (this.successData[0].img) {
                         this.successData[0].img = "/static/img/success/" + this.successData[0].img;
