@@ -59,7 +59,7 @@
                     this.successData = response.data.data;
                     console.log('before sort:', this.successData[0].time, this.successData[this.successData.length - 1].time);
 
-                    this.successData.sort((a, b) => a.time < b.time);
+                    this.successData.sort((a, b) => b.time - a.time);
                     console.log('after sort:', this.successData[0].time, this.successData[this.successData.length - 1].time);
 
                     if (this.successData[0].img) {
@@ -81,7 +81,7 @@
             axios.get('/monitorerr')
                 .then((response) => {
                     this.errData = response.data.data;
-                    this.errData.sort((a, b) => a.time < b.time);
+                    this.errData.sort((a, b) => b.time - a.time);
 
                     if (this.errData[0].img) {
                         this.errData[0].img = "/static/img/err/" + this.errData[0].img;
