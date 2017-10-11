@@ -1,4 +1,4 @@
-### Hawk-eye: 小型前端监控系统，PuppeteerJS ＋ ThinkJS ＋ Chrome-Extension
+## Hawk-eye: 小型前端监控系统，PuppeteerJS ＋ ThinkJS ＋ VueJS
 <!-- - 目前市面上以及各大公司使用的监控系统，几乎都是API层监控，包括调用量、数据、响应时长.....
 - 似乎只要接口没问题，整个系统就是稳定运行的，一切皆大欢喜
 - 但事实并非如此，CDN、DNS、Webview等等这些条件，都可能导致前端渲染失败、白屏
@@ -15,7 +15,7 @@
 
 <img src ="./doc/zhentaoo.png">
 
-### 运行效果
+## 运行说明
 
 ### 1. PuppeteerJS: 定时脚本，爬取被监控对象的状态
 `/scripts/monitor-pp.js`
